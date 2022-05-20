@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::group(['namespace' => '\App\Http\Controllers\Blog', 'prefix' => 'blog'], function () {
     Route::resource('posts' , 'PostController')->names('blog.posts');
 });
+
