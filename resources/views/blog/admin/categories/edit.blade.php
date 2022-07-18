@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="POST" action="{{ route('blog.admin.categories.update', $item->id ) }}">
+    @if($item->exists)
+        <form method="POST" action="{{ route('blog.admin.categories.update', $item->id ) }}">
         @method('PATCH')
-        @csrf
+    @else
+         <form method="POST" action="{{ route('blog.admin.categories.store' ) }}">
+    @endif
+    @csrf
         <div class="container">
             @php
                 /** @var \Illuminate\Support\ViewErrorBag $errors */
